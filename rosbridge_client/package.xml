@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rosbridge_client</name>
+  <version>0.11.13</version>
+  <description>The rosbridge_client package</description>
+
+  <license>BSD</license>
+
+  <maintainer email="dasyad00@gmail.com">Danang Syady Rahmatullah</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
