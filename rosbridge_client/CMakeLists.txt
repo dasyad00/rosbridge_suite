@@ -157,6 +157,7 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
     scripts/rosbridge_websocket.py
+    scripts/rosbridge_websocket
 #   scripts/my_python_script
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

@@ -16,6 +16,8 @@ This project is released as part of the [Robot Web Tools](http://robotwebtools.o
  * [rosbridge_library](rosbridge_library) contains the Python API that receives JSON-formatted strings as input and controls ROS publishers/subscribers/service calls according to the content of the JSON strings.
 
  * [rosbridge_server](rosbridge_server) contains a WebSocket server implementation that exposes the rosbridge_library.
+ 
+ * [rosbridge_client](rosbridge_client) contains a WebSocket client implementation that exposes the rosbridge_library.
 
  * [rosapi](rosapi) provides service calls for getting meta-information related to ROS like topic lists as well as interacting with the Parameter Server.
 
