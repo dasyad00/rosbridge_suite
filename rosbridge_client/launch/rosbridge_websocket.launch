@@ -1,6 +1,7 @@
 <launch>
   <arg name="port" />
   <arg name="address" />
+  <arg name="endpoint" default="/" />
 
   <arg name="retry_startup_delay" default="5" />
 
@@ -14,6 +15,7 @@
   <node name="rosbridge_websocket_client" pkg="rosbridge_client" type="rosbridge_websocket" output="$(arg output)">
     <param name="port" value="$(arg port)"/>
     <param name="address" value="$(arg address)"/>
+    <param name="endpoint" value="$(arg endpoint)"/>
     <param name="retry_startup_delay" value="$(arg retry_startup_delay)"/>
 
     <param name="topics_glob" value="$(arg topics_glob)"/>

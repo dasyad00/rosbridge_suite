@@ -27,6 +27,7 @@ if __name__ == "__main__":
     # target port and address should be defined in the launch file!
     port = rospy.get_param('~port')
     address = rospy.get_param('~address')
+    endpoint = rospy.get_param('~endpoint', "/")
 
     if "--port" in sys.argv:
         idx = sys.argv.index("--port") + 1
@@ -90,15 +91,16 @@ if __name__ == "__main__":
 
     # TODO support wss
     protocol = "ws"
-    uri = "{}://{}:{}".format(protocol, address, port)
+    uri = "{}://{}:{}{}".format(protocol, address, port, endpoint)
     factory = WebSocketClientFactory(uri)
     factory.protocol = RosbridgeWebSocket
 
     connected = False
     while not connected and not rospy.is_shutdown():
         try:
+            # TODO add timeout
             connectWS(factory)
-            rospy.loginfo('Rosbridge WebSocket client connected to {}'.format(uri))
+            rospy.loginfo('Rosbridge WebSocket client daemon started for {}'.format(uri))
             connected = True
         except Exception as e:  # TODO refine exception
             rospy.logwarn(
