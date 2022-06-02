@@ -148,7 +148,9 @@ class RosbridgeWebSocket(WebSocketClientProtocol):
             self.incoming_queue = IncomingQueue(self.protocol)
             self.incoming_queue.start()
             producer = OutgoingValve(self)
-            self.transport.outgoing = producer.relay
+            self.transport.registerProducer(producer, True)
+            producer.resumeProducing()
+            self.protocol.outgoing = producer.relay
             self.authenticated = False
             self.target = self.transport.getPeer().host
             rospy.loginfo("Client connected to {}".format(self.target))
